@@ -22,7 +22,7 @@ Contains scripts to generate different types of molecular descriptors from SMILE
 ### `Excel Files/`
 Contains raw and generated data files.
 
-- `BoilingPointData5k.xlsx`: Main dataset containing SMILES strings and boiling points for 5432 molecules.
+- `BoilingPointData5k.xlsx`: Main dataset containing SMILES strings and boiling points for 5432 molecules.- **Source**: *Zang et al., Journal of Chemical Information and Modeling, 2017*.
 - `OurDescriptor.xlsx`: Custom descriptor generated from adjacency matrix powers and atomic number sequences.
 - `MACCSDescriptor.xlsx`, `MorganDescriptor.xlsx`: Fingerprint descriptors generated using RDKit.
 - `CoulombMatrixDescriptor.xlsx`: Flattened upper-triangular Coulomb matrix representations.
