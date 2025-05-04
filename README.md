@@ -1,67 +1,54 @@
 # Molecular Descriptor-Based Boiling Point Prediction using Machine Learning
 
-This repository provides Python scripts for predicting the boiling points of small organic molecules using various molecular descriptors and regression models. It introduces a custom descriptor based on the powers of the adjacency matrix and ordered atomic number sequences, and compares it with well-known descriptors.
+This repository provides scripts for predicting boiling points of small organic molecules using a variety of molecular descriptors and machine learning models. It includes a custom descriptor based on adjacency matrix powers and atomic number sequences, and compares it against standard molecular representations.
 
 ---
 
 ## 📁 Directory Structure
 
 ### `Descriptor Generator/`
-Contains scripts to generate different types of molecular descriptors from SMILES strings.
+Scripts to compute molecular descriptors from SMILES:
 
 - `OurDescriptorGenerator.py`: Generates the novel descriptor proposed in this project.
 - `MorganMACCSFingerprintsGenerator.py`: Generates Morgan and MACCS descriptors using RDKit.
 - `MordredDescriptorGenerator.py`: Generates Mordred descriptors using the Mordred library.
-- `CleanMordred.py`: Cleans Mordred output by replacing NaNs with 0 and removing all-zero columns.
-- `CoulombDescriptorGenerator.py`: Computes and flattens the upper triangular Coulomb matrix for descriptor generation.
+- `CleanMordred.py`: Replaces NaN values with 0 and removes columns with all zeros.
+- `CoulombDescriptorGenerator.py`: Computes the upper triangular Coulomb matrix as a feature vector.
 
-> ⚠️ **Note:** Please install the required packages (e.g., `rdkit`, `mordred`, `pandas`, etc.) before running these scripts.
+> 💡 These scripts require installation of cheminformatics libraries like `rdkit` and `mordred`.
 
 ---
 
 ### `Excel Files/`
-Contains raw and generated data files.
+Contains the main data files used for training and testing:
 
-- `BoilingPointData5k.xlsx`: Main dataset containing SMILES strings and boiling points for 5432 molecules.- **Source**: *Zang et al., Journal of Chemical Information and Modeling, 2017*.
-- `OurDescriptor.xlsx`: Custom descriptor generated from adjacency matrix powers and atomic number sequences.
-- `MACCSDescriptor.xlsx`, `MorganDescriptor.xlsx`: Fingerprint descriptors generated using RDKit.
-- `CoulombMatrixDescriptor.xlsx`: Flattened upper-triangular Coulomb matrix representations.
-- `MordredDescriptor.xlsx`: **Not included** due to size—can be generated using `MordredDescriptorGenerator.py`.
+- `BoilingPointData5k.xlsx`: Contains SMILES strings and boiling points for 5432 molecules.
+- `OurDescriptor.xlsx`, `MACCSDescriptor.xlsx`, `MorganDescriptor.xlsx`, `CoulombMatrixDescriptor.xlsx`: Processed descriptor files.
+- `MordredDescriptor.xlsx`: **Not included** due to size. It can be regenerated using the appropriate script.
 
-> ⚠️ Ensure these files are in the correct path or update the file paths in your scripts accordingly.
+> ⚠️ Please adjust file paths in the scripts if your file organization differs.
 
 ---
 
 ### `Models/`
-Scripts to train and evaluate machine learning models using the descriptors.
+Scripts to train and evaluate regression models:
 
-- `SupportVectorMachine.py`: Trains a Support Vector Regressor (`kernel='rbf', gamma=0.001`) and evaluates predictions.
-- `RandomForest.py`: Trains a Random Forest model with `random_state=42`.
-- `XGBoostModel.py`: Uses XGBoost Regressor with fixed seed.
+- `SupportVectorMachine.py`: Uses SVR with `kernel='rbf'` and `gamma=0.001`.
+- `RandomForest.py`: Random Forest model with `random_state=42`.
+- `XGBoostModel.py`: XGBoost regressor with `random_state=42`.
 
-Each script performs:
-- 80/20 train-test split (`random_state=42`)
-- Training and prediction
-- Evaluation using MAE, RMSE, and R²
-- Output to an Excel file containing observed and predicted values, and a `"Category"` column indicating `"Train"` or `"Test"` data.
+Each script:
+- Performs 80/20 train-test split using `random_state=42`.
+- Evaluates model performance using MAE, RMSE, and R².
+- Saves predictions to Excel with a `"Category"` column (Train/Test split).
 
 ---
 
-## 🔧 Requirements
+## 🔧 Installation
 
-This project uses Python 3 and the following Python libraries:
-- pandas~=2.1.4
-- numpy~=1.23.5
-- sklearn~=0.0.post10
-- scikit-learn~=1.3.2
-- rdkit~=2023.9.6
-- xgboost~=2.0.3
-- networkx~=2.8.8
-- ase~=3.23.0
-- dscribe~=2.1.1
-- mordred~=1.2.0
+Clone the repository and install the required dependencies:
 
-Install dependencies using:
 ```bash
-pip install numpy pandas scikit-learn xgboost
-# RDKit and Mordred may require conda or extra setup
+git clone https://github.com/your-username/boiling-point-ml.git
+cd boiling-point-ml
+pip install -r requirements.txt
