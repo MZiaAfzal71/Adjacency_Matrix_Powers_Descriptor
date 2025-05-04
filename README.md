@@ -50,12 +50,16 @@ Each script performs:
 ## 🔧 Requirements
 
 This project uses Python 3 and the following Python libraries:
-- `numpy`
-- `pandas`
-- `scikit-learn`
-- `xgboost`
-- `rdkit`
-- `mordred` (for Mordred descriptors)
+- pandas~=2.1.4
+- numpy~=1.23.5
+- sklearn~=0.0.post10
+- scikit-learn~=1.3.2
+- rdkit~=2023.9.6
+- xgboost~=2.0.3
+- networkx~=2.8.8
+- ase~=3.23.0
+- dscribe~=2.1.1
+- mordred~=1.2.0
 
 Install dependencies using:
 ```bash
