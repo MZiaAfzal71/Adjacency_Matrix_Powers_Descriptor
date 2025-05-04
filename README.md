@@ -1,0 +1,1 @@
+# Adjacency_Matrix_Powers_Descriptor
