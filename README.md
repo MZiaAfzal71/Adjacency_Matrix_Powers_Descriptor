@@ -1,8 +1,6 @@
 # Boiling Point Prediction Using Adjacency Matrix Powers-Based Molecular Descriptor
 
-This repository contains code and resources for predicting boiling points of small organic molecules using various molecular descriptors and machine learning models. A novel descriptor based on powers of the adjacency matrix and ordered atomic number sequences is introduced and benchmarked against standard representations.
-
-📍 **GitHub Repository**: [https://github.com/MZiaAfzal71/Adjacency_Matrix_Powers_Descriptor/tree/main](https://github.com/MZiaAfzal71/Adjacency_Matrix_Powers_Descriptor/tree/main)
+This repository contains code and resources for predicting boiling points of small organic molecules using various molecular descriptors and machine learning models. A descriptor based on powers of the adjacency matrix and ordered atomic number sequences is introduced and benchmarked against standard representations.
 
 ---
 
@@ -11,7 +9,7 @@ This repository contains code and resources for predicting boiling points of sma
 ### `Descriptor Generator/`
 Scripts for generating molecular descriptors from SMILES:
 
-- `OurDescriptorGenerator.py`: Generates the proposed novel descriptor.
+- `OurDescriptorGenerator.py`: Generates the proposed descriptor.
 - `MorganMACCSFingerprintsGenerator.py`: Computes Morgan and MACCS fingerprints using RDKit.
 - `MordredDescriptorGenerator.py`: Generates Mordred descriptors via the `mordred` library.
 - `CleanMordred.py`: Cleans Mordred output by replacing NaNs with 0s and removing zero-only columns.
@@ -26,7 +24,7 @@ Contains data files used in training and evaluation:
 
 - `BoilingPointData5k.xlsx`: Boiling points for 5432 molecules collected from:
   
-  > **Q. Zhang, K. Mansouri, A. J. Williams, R. S. Judson, D. G. Allen, W. M. Casey, N. C. Kleinstreuer,**  
+  > **Q. Zang, K. Mansouri, A. J. Williams, R. S. Judson, D. G. Allen, W. M. Casey, N. C. Kleinstreuer,**  
   > *In silico prediction of physicochemical properties of environmental chemicals using molecular fingerprints and machine learning*,  
   > Journal of Chemical Information and Modeling, 57 (2017), pp. 36–49. [https://doi.org/10.1021/acs.jcim.6b00129](https://doi.org/10.1021/acs.jcim.6b00129)
 
