@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
-from xgboost import XGBRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 
@@ -76,14 +76,14 @@ for desc_name, input_path in descriptor_files.items():
         y_test = y_scaled[combined_test_idx]
 
         # Train XGB model
-        model = XGBRegressor(random_state=42)
+        model = RandomForestRegressor(random_state=42)
         model.fit(X_train, y_train)
 
         # Predict on full set
         y_pred_scaled = model.predict(X)
+        y_true = y_scaled * std_y + mean_y
         # y_pred_scaled = model.predict(X_test)
         # y_true = y_test * std_y + mean_y
-        y_true = y_scaled * std_y + mean_y
         y_pred = y_pred_scaled * std_y + mean_y
 
         # Report performance
@@ -104,6 +104,6 @@ for desc_name, input_path in descriptor_files.items():
         results.loc[combined_test_idx, 'Category'] = 'Test'
 
         # Save to Excel
-        output_file = os.path.join(output_dir, f"XGB_{desc_name}_{split_name}.xlsx")
+        output_file = os.path.join(output_dir, f"RF_{desc_name}_{split_name}.xlsx")
         results.to_excel(output_file, index=False)
         print(f"✅ Saved to: {output_file}")
