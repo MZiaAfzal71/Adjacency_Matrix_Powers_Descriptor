@@ -34,15 +34,20 @@ Contains data files used in training and evaluation:
 ---
 
 ### `Models/`
-Machine learning models used to predict boiling points:
+This folder contains all supporting scripts and code used for training and evaluating machine learning models referenced in the paper. These include:
 
-- `SupportVectorMachine.py`: Implements SVR (`kernel='rbf'`, `gamma=0.001`).
-- `RandomForest.py`: Uses a Random Forest Regressor with `random_state=42`.
-- `XGBoostModel.py`: Implements XGBoost with `random_state=42`.
+- Graph kernel-based models
 
-Each model:
-- Performs an 80/20 train-test split using `sklearn` with `random_state=42`.
-- Outputs MAE, RMSE, R² scores, and saves predictions to Excel including a `Category` column (Train/Test).
+- Classical ML regressors (SVR, Random Forest, XGBoost)
+
+- ChemProp (D-MPNN)
+
+- ChemProp with custom descriptors (via chemprop_interpret)
+
+- Additional experiments run through the Chemeleon framework
+
+⚠️ Note:
+These scripts are not directly executable as-is. Paths and configurations must be manually adjusted by the user to match their environment. Currently, Colab or notebook versions are not provided.
 
 ---
 
