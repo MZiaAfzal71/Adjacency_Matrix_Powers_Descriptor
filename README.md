@@ -9,7 +9,7 @@ This repository contains code and resources for predicting boiling points of sma
 ### `Descriptor Generator/`
 Scripts for generating molecular descriptors from SMILES:
 
-- `OurDescriptorGenerator.py`: Generates the proposed descriptor.
+- `OurWeightedDescriptorGenerator.py`: Generates the proposed weighted descriptor.
 - `MorganMACCSFingerprintsGenerator.py`: Computes Morgan and MACCS fingerprints using RDKit.
 - `MordredDescriptorGenerator.py`: Generates Mordred descriptors via the `mordred` library.
 - `CleanMordred.py`: Cleans Mordred output by replacing NaNs with 0s and removing zero-only columns.
