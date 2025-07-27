@@ -22,14 +22,33 @@ Scripts for generating molecular descriptors from SMILES:
 ### `Excel Files/`
 Contains data files used in training and evaluation:
 
-- `BoilingPointData5k.xlsx`: Boiling points for 5432 molecules collected from:
-  
-  > **Q. Zang, K. Mansouri, A. J. Williams, R. S. Judson, D. G. Allen, W. M. Casey, N. C. Kleinstreuer,**  
-  > *In silico prediction of physicochemical properties of environmental chemicals using molecular fingerprints and machine learning*,  
-  > Journal of Chemical Information and Modeling, 57 (2017), pp. 36–49. [https://doi.org/10.1021/acs.jcim.6b00129](https://doi.org/10.1021/acs.jcim.6b00129)
+BoilingPointData5k.xlsx
+Dataset of 5,432 organic molecules with experimental boiling points collected from:
 
-- `OurDescriptor.xlsx`, `MACCSDescriptor.xlsx`, `MorganDescriptor.xlsx`, `CoulombMatrixDescriptor.xlsx`: Generated feature matrices for each representation.
-- ⚠️ `MordredDescriptor.xlsx` is not included due to size, but can be regenerated using the provided scripts.
+> Q. Zang, K. Mansouri, A. J. Williams, R. S. Judson, D. G. Allen, W. M. Casey, N. C. Kleinstreuer
+> In silico prediction of physicochemical properties of environmental chemicals using molecular fingerprints and machine learning,
+> Journal of Chemical Information and Modeling, 57 (2017), pp. 36–49.
+> https://doi.org/10.1021/acs.jcim.6b00129
+
+- Descriptor files (feature matrices used in modeling):
+
+- OurDescriptor.xlsx
+
+- MACCSDescriptor.xlsx
+
+- MorganDescriptor.xlsx
+
+- CoulombMatrixDescriptor.xlsx
+
+⚠️ MordredDescriptor.xlsx is not included due to size, but can be regenerated using the scripts in the Models/ directory.
+
+Data splits:
+
+-random_split_42.npz: Predefined random train/validation/test(80:10:10) split
+
+- scaffold_split_Murcko.npz: Scaffold-based train/validation/test(80:10:10) split generated using Murcko scaffolds
+
+📌 Ensure that the splits align with your experiments when running or comparing models.
 
 ---
 
